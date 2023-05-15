@@ -8,7 +8,7 @@ from eth_account.signers.local import LocalAccount
 from swaprum_claimer.paths import PUBLIC_KEYS_TXT, PRIVATE_KEYS_TXT
 from swaprum_claimer.config import DELAY
 from swaprum_claimer.logger import logger
-from swaprum_claimer import swaprum_api
+from swaprum_claimer import api as swaprum_api
 from swaprum_claimer._web3 import w3
 
 
@@ -67,7 +67,7 @@ async def process_public_key(address: str, session: aiohttp.ClientSession):
         logger.error(f"{address}")
 
 
-async def async_main():
+async def work():
     with open(PRIVATE_KEYS_TXT, 'r') as file:
         accounts: set[LocalAccount] = {Account.from_key(key.strip()) for key in file.readlines() if key != "\n"}
     with open(PUBLIC_KEYS_TXT, 'r') as file:
@@ -82,9 +82,5 @@ async def async_main():
             for address in addresses:
                 tasks.append(asyncio.create_task(process_public_key(address, session)))
             await asyncio.gather(*tasks)
-            logger.info(f"Сплю {DELAY} секунд :)")
+            logger.info(f"Sleep {DELAY} secs :)")
             sleep(DELAY)
-
-
-def main():
-    asyncio.run(async_main())
