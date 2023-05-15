@@ -23,6 +23,11 @@ def main():
                 # Сбор награды
                 claim_info = swaprum_api.claim(address)
                 user_info = swaprum_api.get_user_info(address)
+                prelaunch_active: dict = user_info["preLaunchActive"]
+                if False in prelaunch_active.values():
+                    code = user_info["code"]
+                    logger.warning(f"{address} Activate account with /active {code} here: https://t.me/swaprum_arb_bot")
+                    continue
                 balance_wei = int(user_info["freeClaimBalance"])
                 balance = round(w3.from_wei(balance_wei, "ether"), 2)
                 if "success" in claim_info:
@@ -46,6 +51,11 @@ def main():
                 # Сбор награды
                 claim_info = swaprum_api.claim(address)
                 user_info = swaprum_api.get_user_info(address)
+                prelaunch_active: dict = user_info["preLaunchActive"]
+                if False in prelaunch_active.values():
+                    code = user_info["code"]
+                    logger.warning(f"{address} Activate account with /active {code} here: https://t.me/swaprum_arb_bot")
+                    continue
                 balance_wei = int(user_info["freeClaimBalance"])
                 balance = round(w3.from_wei(balance_wei, "ether"), 2)
                 if "success" in claim_info:
