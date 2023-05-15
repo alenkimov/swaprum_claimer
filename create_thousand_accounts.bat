@@ -1,0 +1,1 @@
+poetry run python swaprum.py create 1000
