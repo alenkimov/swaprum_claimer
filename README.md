@@ -16,7 +16,7 @@ cd swaprum_claimer
 poetry update
 ```
 
-### Установка под Ubuntu
+## Установка под Ubuntu
 - Обновите систему:
 ```bash
 sudo apt update && sudo apt upgrade -y
