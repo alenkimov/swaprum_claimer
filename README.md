@@ -11,10 +11,12 @@ Claims swaprum.finance/free-tokens airdrop!
 git clone https://github.com/AlenKimov/swaprum_claimer.git
 cd swaprum_claimer
 ```
-- Установите требуемые библиотеки с помощью Poetry и запустите скрипт:
+- Установите требуемые библиотеки с помощью Poetry:
 ```bash
 poetry update
 ```
+
+_Инструкция по работе со скриптом находится ниже._
 
 ## Установка под Ubuntu
 - Обновите систему:
