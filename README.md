@@ -26,10 +26,9 @@ export PATH="/root/.local/bin:$PATH"
 git clone https://github.com/AlenKimov/swaprum_claimer.git
 cd swaprum_claimer
 ```
-- Следующие команды установят требуемые библиотеки и запустят скрипт:
+- Следующая команда установит требуемые библиотеки:
 ```bash
-poetry update                
-poetry run python start.py
+poetry update
 ```
 
 ## Работа со скриптом
@@ -42,3 +41,13 @@ poetry run python start.py
 Внесите публичные ключи в файл `public_keys.txt`.
 Если приватный ключ кошелька внесен в `private_keys.txt`,
 НЕ НУЖНО повторно вносить его публичный ключ в `public_keys.txt`!
+
+Для запуска скрипта пропишите следующую команду (или запустите `start.bat` на Windows):
+```bash
+poetry run python swaprum.py start
+```
+
+Для генерации аккаунтов пропишите следующую команду (или запустите `create_thousand_accounts.bat` на Windows):
+```bash
+poetry run python swaprum.py create 1000
+```
