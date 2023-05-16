@@ -66,7 +66,7 @@ poetry update
 poetry run python swaprum.py start
 ```
 
-Для генерации аккаунтов пропишите следующую команду (или запустите `create_thousand_accounts.bat` на Windows):
+Для генерации аккаунтов пропишите следующую команду (или запустите `create_100_accounts.bat` на Windows):
 ```bash
 poetry run python swaprum.py create 1000 --ref=your_ref_code
 ```
