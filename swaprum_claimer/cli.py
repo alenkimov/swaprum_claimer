@@ -13,8 +13,9 @@ def cli():
 
 @cli.command()
 @click.argument('count', default=1)
-def create(count):
-    asyncio.run(create_accounts(count))
+@click.option('--ref', default=None, help='Ref code.')
+def create(count, ref):
+    asyncio.run(create_accounts(count, ref=ref))
 
 
 @cli.command()
