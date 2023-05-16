@@ -8,7 +8,6 @@ Claims swaprum.finance/free-tokens airdrop!
 ## Установка под Windows
 - Установите [Python 3.11](https://www.python.org/downloads/windows/). Не забудьте поставить галочку напротив "Add Python to PATH".
 - Установите пакетный менеджер [Poetry](https://python-poetry.org/docs/). Не забудьте добавить Poetry в переменную окружения Path.
-- Для работы библиотеки web3 (ошибка "Microsoft Visual C++ 14.0 or greater is required") установите Microsoft Visual C++ [[подробнее](https://stackoverflow.com/questions/29846087/error-microsoft-visual-c-14-0-is-required-unable-to-find-vcvarsall-bat/55575792#55575792)]
 - Установите [git](https://git-scm.com/download/win).
 - Склонируйте этот репозиторий, после чего перейдите в него:
 ```bash
@@ -19,8 +18,7 @@ cd swaprum_claimer
 ```bash
 poetry update
 ```
-
-_Инструкция по работе со скриптом находится ниже._
+- [Подробнее об ошибке "Microsoft Visual C++ 14.0 or greater is required"](https://web3py.readthedocs.io/en/latest/troubleshooting.html#why-am-i-getting-visual-c-or-cython-not-installed-error)
 
 ## Установка под Ubuntu
 - Обновите систему:
