@@ -1,7 +1,7 @@
 import logging
-import sys
 
 from loguru import logger
+from tqdm.asyncio import tqdm
 
 from swaprum_claimer.config import LOGGING_LEVEL
 
@@ -29,7 +29,7 @@ class InterceptHandler(logging.Handler):
 def setup(level="DEBUG"):
     logging.basicConfig(handlers=[InterceptHandler()], level=logging.INFO)
     logger.remove()
-    logger.add(sys.stderr, colorize=True, format=CONSOLE_LOG_FORMAT, level=level)
+    logger.add(tqdm.write, colorize=True, format=CONSOLE_LOG_FORMAT, level=level)
 
 
 setup(LOGGING_LEVEL)
