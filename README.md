@@ -1,6 +1,10 @@
 # Swaprum airdrop claimer
 Claims swaprum.finance/free-tokens airdrop!
 
+- [Установка под Windows](#Установка-под-Windows)
+- [Установка под Ubuntu](#Установка-под-Ubuntu)
+- [Работа со скриптом](#Работа-со-скриптом)
+
 ## Установка под Windows
 - Установите [Python 3.11](https://www.python.org/downloads/windows/). Не забудьте поставить галочку напротив "Add Python to PATH".
 - Установите пакетный менеджер [Poetry](https://python-poetry.org/docs/). Не забудьте добавить Poetry в переменную окружения Path.
