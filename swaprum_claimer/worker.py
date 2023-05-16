@@ -12,6 +12,13 @@ from swaprum_claimer import api as swaprum_api
 from swaprum_claimer._web3 import w3
 
 
+# Создаю файлы, если отсутствуют
+for filepath in [PRIVATE_KEYS_TXT, PUBLIC_KEYS_TXT]:
+    if not filepath.exists():
+        with open(filepath, "w"):
+            pass
+
+
 async def claim_reward(session: aiohttp.ClientSession, address: str, user_info: dict):
     claim_info = await swaprum_api.claim(session, address)
     balance_wei = int(user_info["freeClaimBalance"])
@@ -68,11 +75,11 @@ async def process_public_key(address: str, session: aiohttp.ClientSession):
 
 
 async def work():
-    with open(PRIVATE_KEYS_TXT, 'r') as file:
-        accounts: set[LocalAccount] = {Account.from_key(key.strip()) for key in file.readlines() if key != "\n"}
-    with open(PUBLIC_KEYS_TXT, 'r') as file:
-        addresses: set[str] = {address.strip() for address in file.readlines() if address != "\n"}
     while True:
+        with open(PRIVATE_KEYS_TXT, 'r') as file:
+            accounts: set[LocalAccount] = {Account.from_key(key.strip()) for key in file.readlines() if key != "\n"}
+        with open(PUBLIC_KEYS_TXT, 'r') as file:
+            addresses: set[str] = {address.strip() for address in file.readlines() if address != "\n"}
         async with aiohttp.ClientSession() as session:
             logger.info(f"Public_keys: {len(addresses)}")
             logger.info(f"Private_keys: {len(accounts)}")
